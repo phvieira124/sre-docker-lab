@@ -18,6 +18,8 @@
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		<!-- O endereço que leva à sua instalação do Sonar -->
+		<sonar.host.url>http://192.168.15.97:9000</sonar.host.url>
 	</properties>
 
 	<dependencies>
