@@ -13,9 +13,9 @@ services:
     depends_on:
       - eureka-server
     expose:
-      - "8080"
+      - "8081"
     ports:
-      - "8080:8765"
+      - "8081:8765"
   hr-worker-service:
     build:
       context: ./hr-worker

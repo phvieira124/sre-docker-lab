@@ -10,6 +10,15 @@ pipeline {
             }
         }
 
+        stage('code_analyzer:sonar') {
+            steps {
+                sh 'mvn sonar:sonar -f ./hr-eureka-server'
+                sh 'mvn sonar:sonar -f ./hr-payroll'
+                sh 'mvn sonar:sonar -f ./hr-worker'
+                sh 'mvn sonar:sonar -f ./netflix-zuul-api-gateway-server'
+            }
+        }
+
         stage('test:mvn') {
             steps {
                 sh 'mvn test -f ./hr-eureka-server'
@@ -19,16 +28,10 @@ pipeline {
             }
         }
 
-        stage('code_analise:sonar') {
+        stage('deploy:docker_compose') {
             steps {
-                 h 'mvn sonar:sonar -f ./hr-eureka-server'
-                sh 'mvn sonar:sonar -f ./hr-payroll'
-                sh 'mvn sonar:sonar -f ./hr-worker'
-                sh 'mvn sonar:sonar -f ./netflix-zuul-api-gateway-server'
+                sh 'sudo docker-compose up'
             }
         }
-
     }
 }
-
-
