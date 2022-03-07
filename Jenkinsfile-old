@@ -10,12 +10,6 @@ pipeline {
             }
         }
 
-        stage('build:mvn') {
-            steps {
-                sh 'mvn clean package -Dmaven.test.skip=true'
-            }
-        }
-
         stage('code_analyzer:sonar') {
             steps {
                 sh 'mvn sonar:sonar -f ./hr-eureka-server'
