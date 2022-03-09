@@ -1,1 +1,0 @@
-![Arquitetura Microserviços Desafio](/Ms_Architecture_Desafio_1.png "Arquitetura Microserviços Desafio 1")

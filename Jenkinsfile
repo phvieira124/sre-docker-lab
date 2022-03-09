@@ -12,7 +12,10 @@ pipeline {
 
         stage('build:mvn') {
             steps {
-                sh 'mvn clean package -Dmaven.test.skip=true'
+                sh 'mvn clean package -Dmaven.test.skip=true -f ./hr-eureka-server'
+                sh 'mvn clean package -Dmaven.test.skip=true -f ./hr-payroll'
+                sh 'mvn clean package -Dmaven.test.skip=true -f ./hr-worker'
+                sh 'mvn clean package -Dmaven.test.skip=true -f ./netflix-zuul-api-gateway-server'
             }
         }
 
@@ -36,6 +39,7 @@ pipeline {
 
         stage('deploy:docker_compose') {
             steps {
+                sh 'sudo docker-compose build'
                 sh 'sudo docker-compose up -d'
             }
         }
