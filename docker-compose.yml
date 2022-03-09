@@ -23,7 +23,7 @@ services:
       - eureka.client.service-url.defaultZone=http://eureka-server:8761/eureka/
     deploy:
       mode: replicated
-      replicas: 2
+      replicas: 1
     depends_on:
       - eureka-server
       - api-gatway-service
@@ -32,7 +32,7 @@ services:
       context: ./hr-payroll
     deploy:
       mode: replicated
-      replicas: 2
+      replicas: 1
     environment:
       - eureka.client.service-url.defaultZone=http://eureka-server:8761/eureka/
     depends_on:
