@@ -39,7 +39,7 @@ pipeline {
 
         stage('deploy:docker_compose') {
             steps {
-                sh 'sudo docker-compose build .'
+                sh 'sudo docker-compose build'
                 sh 'sudo docker-compose up -d'
             }
         }
