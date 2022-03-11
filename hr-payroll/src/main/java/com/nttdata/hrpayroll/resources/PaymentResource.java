@@ -23,4 +23,16 @@ public class PaymentResource {
 		return ResponseEntity.ok(payment);
 	}
 
+	@GetMapping(value = "/soma")
+	public int soma() {
+		int valor1 = 1;
+		int valor2 = 1;
+		return valor1 + valor2;
+	}
+
+	@GetMapping(value = "/soma/{valor1}/{valor2}")
+	public int soma(@PathVariable int valor1, @PathVariable int valor2) {
+		return valor1 + valor2;
+	}
+
 }
